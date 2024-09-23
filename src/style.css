@@ -1,0 +1,149 @@
+/* https://coolors.co/12100e-30321c-4a4b2f-6b654b-d4df9e */
+@font-face {
+    font-family: Astonpoliz;
+    src: url("./fonts/Astonpoliz.ttf");
+}
+@font-face {
+    font-family: 'Blissful Thinking';
+    src: url("./fonts/blissfulthinking.otf");
+}
+
+:root{
+    --background: rgb(0, 0, 0);
+    --foreground: rgb(255, 255, 255);
+    --color3: #12100e;
+    --color4: #30321c;
+    --color5: #4a4b2f;
+    --color6: #6b654b;
+    --color7: #d4df9e;
+    --border-radius: 10px;
+    --paragraph: 17px;
+    --heading1: 25px;
+    --heading2: 20px;
+    --head-font: Astonpoliz;
+    --para-font: 'Blissful Thinking';
+}
+
+body{
+    background: var(--background);
+}
+#grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 15px;
+}
+#header{
+    grid-column: span 6;
+    text-align: center;
+    border-bottom: solid 1px var(--color4);
+    padding: 10px;
+}
+#fetch-div{
+    width: 33.3%;
+    grid-column: span 6;
+    text-align: center;
+    padding: 10px;
+    border: solid 3px var(--color4);
+    border-right: none;
+    border-left: none;
+    border: none;
+    margin: 0 auto;
+}
+#username{
+    width: 90%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    margin: 0 auto;
+    color: var(--foreground);
+    background: var(--color3);
+    border: none;
+    outline: none;
+    font-size: var(--paragraph);
+    font-family: var(--para-font);
+    letter-spacing: 1px;
+}
+#fetch-btn, #buffer-btn{
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    background: var(--color5);
+    border: none;
+    outline: none;
+    font-size: var(--paragraph);
+    color: var(--foreground);
+    cursor: pointer;
+    font-family: var(--para-font);
+}
+#buffer-btn{
+    display: none;
+}
+#buffer{
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation-name: border-circle;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    display: inline-block;
+}
+#title{
+    font-size: var(--heading1);
+    color: white;
+    background: var(--color4);
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 100px;
+    margin: 5px;
+    margin-bottom: 10px;
+    font-family: var(--head-font);
+    border: solid 1px var(--color4);
+    animation-name: border-circle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+#rating-card{
+    color: var(--foreground);
+    text-align: center;
+    font-family: var(--head-font);
+    background: var(--color3);
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 18px;
+    grid-column: span 2;
+}
+#rating-card:nth-last-child(1), #rating-card:nth-last-child(2){
+    grid-column: span 3;
+}
+#format{
+    font-size: var(--heading1);
+}
+#rating{
+    font-size: var(--heading2);
+    color: var(--color4);
+}
+
+
+@keyframes border-circle {
+    25%{
+        border-left: solid 2px white;
+    }
+    50%{
+        border-top: solid 2px white;
+    }
+    75%{
+        border-right: solid 2px white;
+    }
+    100%{
+        border-bottom: solid 2px white;
+    }
+}
+@keyframes dim {
+    50%{
+        color: white;
+    }
+}
