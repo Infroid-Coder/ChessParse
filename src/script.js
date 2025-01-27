@@ -80,6 +80,7 @@ trigger.onclick = () => {
             for(let i = 0; i < ratingOutputs.length; i++){
                 let ratingObj = vars[ratingOutputs[i].children[0].innerText.toLowerCase()];
                 ratingOutputs[i].children[1].style.color = "#64e9ee";
+                ratingOutputs[i].children[1].style.userSelect = "auto";
                 ratingOutputs[i].children[1].innerText = (ratingObj === null) ? "Unrated" : ratingObj.rating;
             }
             trigger.style.display = "inline-block";
