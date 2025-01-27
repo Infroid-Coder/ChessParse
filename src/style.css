@@ -127,6 +127,21 @@ body{
     color: var(--color4);
     user-select: none;
 }
+#popup{
+    width: 50vw;
+    background: var(--color6);
+    padding: 15px 20px;
+    border-radius: 15px;
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#popup-content{
+    color: white;
+    font-family: var(--para-font);
+    font-size: 17px;
+}
 
 @keyframes border-circle {
     25%{
