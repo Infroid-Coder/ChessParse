@@ -101,7 +101,7 @@ trigger.onclick = () => {
     .then((vars) => {
         if(vars.error){
             console.log("Error fetching the information. Please try again!");
-            alert("Error fetching the information. Please try again!");
+            popupOpen("Error fetching the information. Please try again!");
             trigger.style.display = "inline-block";
             buffer.style.display = "none";
         } else{
@@ -114,5 +114,8 @@ trigger.onclick = () => {
             trigger.style.display = "inline-block";
             buffer.style.display = "none";
         }
+    }).catch(() => {
+        console.log("Error fetching the information. Please try again!");
+        popupOpen("Error fetching the information. Please try again!");
     })
 }
