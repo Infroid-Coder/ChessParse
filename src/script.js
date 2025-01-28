@@ -49,7 +49,7 @@ function popupOpen(text=""){
     popupText.innerHTML = text;
     popupBox.style.animationName = "popup-in";
     popupBox.style.animationDuration = ".5s";
-    popupBox.style.display = "block"
+    popupBox.style.display = "block";
     popupBox.onanimationend = () => {
         popupBox.animationName = "";
         popupBox.onanimationend = undefined;
@@ -57,6 +57,17 @@ function popupOpen(text=""){
     setTimeout(() => {
         popupClose();
     }, 3300)
+}
+function popupClose(){
+    let popupBox = document.getElementById('popup');
+    let popupText = document.getElementById('popup-content');
+    popupBox.style.animationName = "popup-out";
+    popupBox.style.animationDuration = ".3s";
+    popupBox.onanimationend = () => {
+        popupBox.style.display = "none";
+        popupBox.animationName = "";
+        popupBox.onanimationend = undefined;
+    }
 }
 
 input.addEventListener("keydown",(e) => {
