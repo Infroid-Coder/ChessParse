@@ -41,6 +41,23 @@ function chessParse(jsonCont){
     }
     return rObj;
 }
+function popupOpen(text=""){
+    if(typeof text !== "string" || text === "") return;
+    let popupBox = document.getElementById('popup');
+    let popupText = document.getElementById('popup-content');
+
+    popupText.innerHTML = text;
+    popupBox.style.animationName = "popup-in";
+    popupBox.style.animationDuration = ".5s";
+    popupBox.style.display = "block"
+    popupBox.onanimationend = () => {
+        popupBox.animationName = "";
+        popupBox.onanimationend = undefined;
+    }
+    setTimeout(() => {
+        popupClose();
+    }, 3300)
+}
 
 input.addEventListener("keydown",(e) => {
     if(e.key === " "){
