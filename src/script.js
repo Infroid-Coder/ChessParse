@@ -41,6 +41,34 @@ function chessParse(jsonCont){
     }
     return rObj;
 }
+function popupOpen(text=""){
+    if(typeof text !== "string" || text === "") return;
+    let popupBox = document.getElementById('popup');
+    let popupText = document.getElementById('popup-content');
+
+    popupText.innerHTML = text;
+    popupBox.style.animationName = "popup-in";
+    popupBox.style.animationDuration = ".5s";
+    popupBox.style.display = "block"
+    popupBox.onanimationend = () => {
+        popupBox.animationName = "";
+        popupBox.onanimationend = undefined;
+    }
+    setTimeout(() => {
+        popupClose();
+    }, 3300)
+}
+function popupClose(){
+    let popupBox = document.getElementById('popup');
+    let popupText = document.getElementById('popup-content');
+    popupBox.style.animationName = "popup-out";
+    popupBox.style.animationDuration = ".3s";
+    popupBox.onanimationend = () => {
+        popupBox.style.display = "none";
+        popupBox.animationName = "";
+        popupBox.onanimationend = undefined;
+    }
+}
 
 input.addEventListener("keydown",(e) => {
     if(e.key === " "){
@@ -73,7 +101,7 @@ trigger.onclick = () => {
     .then((vars) => {
         if(vars.error){
             console.log("Error fetching the information. Please try again!");
-            alert("Error fetching the information. Please try again!");
+            popupOpen("Error fetching the information. Please try again!");
             trigger.style.display = "inline-block";
             buffer.style.display = "none";
         } else{
@@ -86,5 +114,10 @@ trigger.onclick = () => {
             trigger.style.display = "inline-block";
             buffer.style.display = "none";
         }
+    }).catch(() => {
+        console.log("Error fetching the information. Please try again!");
+        popupOpen("Error fetching the information. Please try again!");
+        trigger.style.display = "inline-block";
+        buffer.style.display = "none";
     })
 }
