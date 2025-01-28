@@ -49,7 +49,7 @@ function popupOpen(text=""){
     popupText.innerHTML = text;
     popupBox.style.animationName = "popup-in";
     popupBox.style.animationDuration = ".5s";
-    popupBox.style.display = "block";
+    popupBox.style.display = "block"
     popupBox.onanimationend = () => {
         popupBox.animationName = "";
         popupBox.onanimationend = undefined;
@@ -117,5 +117,7 @@ trigger.onclick = () => {
     }).catch(() => {
         console.log("Error fetching the information. Please try again!");
         popupOpen("Error fetching the information. Please try again!");
+        trigger.style.display = "inline-block";
+        buffer.style.display = "none";
     })
 }
